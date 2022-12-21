@@ -1,29 +1,34 @@
 # PHPTodoListWithAjax
 This is a simple PHP program that let you create , delete , ... Todos in simplest way.
 
+For start you should create a new Database and two table like below:
 
-+-------------+------------------+------+-----+---------------------+----------------+
-| Field       | Type             | Null | Key | Default             | Extra          |
-+-------------+------------------+------+-----+---------------------+----------------+
-| id          | int(10) unsigned | NO   | PRI | NULL                | auto_increment |
-| user_id     | int(10) unsigned | NO   |     | NULL                |                |
-| title       | varchar(128)     | NO   |     | NULL                |                |
-| description | varchar(512)     | NO   |     | NULL                |                |
-| created_at  | datetime         | NO   |     | current_timestamp() |                |
-| updated_at  | datetime         | NO   |     | NULL                |                |
-| status      | tinyint(1)       | NO   |     | 0                   |                |
-+-------------+------------------+------+-----+---------------------+----------------+
+![1](https://user-images.githubusercontent.com/107758775/208897255-66e9e48c-ada9-48e3-b22d-cca30bab3e9b.png)
+
+After that you can use describe command in interactive mysql shell environment. To open this environment first run your mysql and use terminal or cmd in windows:
+
+```
+mysql -h <your-domain> -u <your-username> -p
+```
+
+Now select your Database:
+
+```
+USE <db-name>;
+```
+
+And after that get your tables:
+
+```
+SHOW tables;
+```
+
+For any table in your Database run below command and you should get same result like me:
+
+```
+DESCRIBE <table-name>;
+```
+
+## Result of describe tasks table
 
 
-
-
-
-+-----------+------------------+------+-----+---------------------+----------------+
-| Field     | Type             | Null | Key | Default             | Extra          |
-+-----------+------------------+------+-----+---------------------+----------------+
-| id        | int(10) unsigned | NO   | PRI | NULL                | auto_increment |
-| user_name | varchar(256)     | NO   |     | NULL                |                |
-| email     | varchar(256)     | NO   |     | NULL                |                |
-| password  | varchar(256)     | NO   |     | NULL                |                |
-| joined_at | datetime         | NO   |     | current_timestamp() |                |
-+-----------+------------------+------+-----+---------------------+----------------+
