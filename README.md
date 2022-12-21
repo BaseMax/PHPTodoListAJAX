@@ -29,6 +29,11 @@ For any table in your Database run below command and you should get same result 
 DESCRIBE <table-name>;
 ```
 
-## Result of describe tasks table
+## tasks table
+
+![2](https://user-images.githubusercontent.com/107758775/208900075-6552c14f-1742-4392-9f8d-1f0e15731119.png)
+
+## users table
 
 
+![3](https://user-images.githubusercontent.com/107758775/208900322-a979d5f0-d994-4680-86da-0a80335ecb63.png)
