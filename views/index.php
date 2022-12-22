@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <p id="test"></p>
   <section class="vh-100" style="background-color: #eee">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -24,16 +25,16 @@
                   <div class="form-outline">
                     <input type="text" id="form1" class="form-control" placeholder="Title">
                     <br>
-                    <input type="text" id="form1" class="form-control" placeholder="Description" />
+                    <input type="text" id="form2" class="form-control" placeholder="Description" />
                   </div>
                 </div>
 
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="submit" class="btn btn-primary" id="save">Save</button>
                 </div>
 
                 <div class="col-12">
-                  <button type="submit" class="btn btn-warning">
+                  <button type="submit" class="btn btn-warning" id="getTasks">
                     Get tasks
                   </button>
                 </div>
@@ -71,47 +72,8 @@
 TEXT;
                     echo $text;
                   }
-
                   ?>
-                  <!-- <tr>
-                    <th scope="row">1</th>
-                    <td>Buy groceries for next week</td>
-                    <td>In progress</td>
-                    <td>
-                      <button type="submit" class="btn btn-danger">
-                        Delete
-                      </button>
-                      <button type="submit" class="btn btn-success ms-1">
-                        Finished
-                      </button>
-                    </td>
-                  </tr> -->
-                  <!-- <tr>
-                      <th scope="row">2</th>
-                      <td>Renew car insurance</td>
-                      <td>In progress</td>
-                      <td>
-                        <button type="submit" class="btn btn-danger">
-                          Delete
-                        </button>
-                        <button type="submit" class="btn btn-success ms-1">
-                          Finished
-                        </button>
-                      </td>
-                    </tr> -->
-                  <!-- <tr>
-                      <th scope="row">3</th>
-                      <td>Sign up for online course</td>
-                      <td>In progress</td>
-                      <td>
-                        <button type="submit" class="btn btn-danger">
-                          Delete
-                        </button>
-                        <button type="submit" class="btn btn-success ms-1">
-                          Finished
-                        </button>
-                      </td>
-                    </tr> -->
+
                 </tbody>
               </table>
             </div>
@@ -122,6 +84,27 @@ TEXT;
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+    let saveBtn = $("#save");
+    let getTasks = $("#getTasks");
+    let title = $("#form1");
+    let description = $("#form2");
+    $(window).ready(function(e) {
+      saveBtn.click(function(event) {
+        event.preventDefault();
+        if (
+          title.val().trim().length !== 0 &&
+          description.val().trim().length !== 0) {
+          $.post("controllers/add-task.php", {
+              title: title.val(),
+              description: description.val()
+            },
+            function(result) {
+              alert(result);
+            }
+          );
+        }
+      })
+    });
   </script>
 </body>
 
