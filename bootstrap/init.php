@@ -12,5 +12,7 @@ try {
         $db_config->password
     );
 } catch (PDOException $e) {
-    killer($e->getMessage());
+    killer("Connection Failed :" . $e->getMessage());
 }
+
+require_once "libs/lib-tasks.php";

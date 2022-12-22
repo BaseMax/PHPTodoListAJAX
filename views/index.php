@@ -22,8 +22,9 @@
               <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
                 <div class="col-12">
                   <div class="form-outline">
-                    <input type="text" id="form1" class="form-control" />
-                    <label class="form-label" for="form1">Enter a task here</label>
+                    <input type="text" id="form1" class="form-control" placeholder="Title">
+                    <br>
+                    <input type="text" id="form1" class="form-control" placeholder="Description" />
                   </div>
                 </div>
 
@@ -42,13 +43,37 @@
                 <thead>
                   <tr>
                     <th scope="col">No.</th>
+                    <th scope="col">Title</th>
                     <th scope="col">Todo item</th>
                     <th scope="col">Status</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <?php
+                  foreach ($allTasks as $task) {
+                    $status = $task["status"] ? "Completed" : "In progress";
+                    $text = <<<TEXT
+  <tr>
+  <th scope="row">{$task["id"]}</th>
+  <td>{$task["title"]}</td>
+  <td>{$task["description"]}</td>
+  <td>$status</td>
+  <td>
+    <button type="submit" class="btn btn-danger">
+      Delete
+    </button>
+    <button type="submit" class="btn btn-success ms-1">
+      Finished
+    </button>
+  </td>
+</tr>
+TEXT;
+                    echo $text;
+                  }
+
+                  ?>
+                  <!-- <tr>
                     <th scope="row">1</th>
                     <td>Buy groceries for next week</td>
                     <td>In progress</td>
@@ -60,7 +85,7 @@
                         Finished
                       </button>
                     </td>
-                  </tr>
+                  </tr> -->
                   <!-- <tr>
                       <th scope="row">2</th>
                       <td>Renew car insurance</td>
@@ -96,6 +121,8 @@
     </div>
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+  </script>
 </body>
 
 </html>
