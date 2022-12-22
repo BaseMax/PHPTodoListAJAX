@@ -1,6 +1,9 @@
 <?php
 
-$db_config = [
+$db_config = (object) [
     "host" => "localhost",
-    "password" => ""
+    "password" => "",
+    "user" => "root",
+    "db" => "myproject",
+    "charset" => "utf8"
 ];
