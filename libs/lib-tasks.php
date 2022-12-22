@@ -1,11 +1,16 @@
 <?php
 
+function getCurrentUserId()
+{
+}
+
 function getAllTasks()
 {
+    $userId = getCurrentUserId();
     global $connection;
-    $query = "SELECT * FROM tasks";
+    $query = "SELECT * FROM tasks WHERE user_id = ?";
     $stmt = $connection->prepare($query);
-    $stmt->execute();
+    $stmt->execute([1]);
     return $stmt->fetchAll();
 }
 
@@ -18,6 +23,18 @@ function addTask($title, $description)
         $title,
         $description
     ])) {
+        return ["status" => true];
+    } else {
+        return ["status" => false];
+    }
+}
+
+function deleteTask($taskId)
+{
+    global $connection;
+    $query = "DELETE FROM tasks WHERE id = ?";
+    $stmt = $connection->prepare($query);
+    if ($stmt->execute([$taskId])) {
         return ["status" => true];
     } else {
         return ["status" => false];
