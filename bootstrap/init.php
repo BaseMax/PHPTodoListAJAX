@@ -1,9 +1,11 @@
 <?php
 
 require_once "vendor/autoload.php";
-require_once "config/config.php";
 require_once "bootstrap/constants.php";
+require_once "config/config.php";
 require_once "libs/helper.php";
+
+defined("CHECK") or die("permission denied");
 
 try {
     $connection = new PDO(

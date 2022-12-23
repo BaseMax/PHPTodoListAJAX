@@ -1,3 +1,6 @@
+<?php
+defined("CHECK") or die("permission denied");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Let us save your Tasks !</title>
   <link rel="icon" type="image/x-icon" href="assets/Web/icons8-todo-list-sf-black-96.png" />
@@ -83,31 +86,8 @@ TEXT;
       </div>
     </div>
   </section>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    // let saveBtn = $("#save");
-    // let getTasks = $("#getTasks");
-    // let title = $("#form1");
-    // let description = $("#form2");
-    // $(window).ready(function(e) {
-    //   saveBtn.click(function(event) {
-    //     event.preventDefault();
-    //     if (
-    //       title.val().trim().length !== 0 &&
-    //       description.val().trim().length !== 0
-    //     ) {
-    //       $.post("localhost/PHPTodoListWithAjax/index.php", {
-    //           title: title.val(),
-    //           description: description.val()
-    //         },
-    //         function(result) {
-    //           alert(result);
-    //         }
-    //       );
-    //     }
-    //   })
-    // });
-  </script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/ajaxHandler.js"></script>
 </body>
 
 </html>
