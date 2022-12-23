@@ -1,4 +1,4 @@
-<?php defined("CHECK") or die("permission denied");
+<?php defined("CHECK") or killer("permission denied");
 
 function getCurrentUserId()
 {

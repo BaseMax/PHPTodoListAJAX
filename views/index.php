@@ -1,5 +1,5 @@
 <?php
-defined("CHECK") or die("permission denied");
+defined("CHECK") or killer("permission denied");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +54,7 @@ defined("CHECK") or die("permission denied");
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                   <?php
                   foreach ($allTasks as $task) {
                     $status = $task["status"] ? "Completed" : "In progress";

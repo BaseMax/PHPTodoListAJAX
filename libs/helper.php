@@ -1,4 +1,4 @@
-<?php defined("CHECK") or die("permission denied");
+<?php
 
 function killer($error)
 {
@@ -6,6 +6,7 @@ function killer($error)
     die();
 }
 
+defined("CHECK") or killer("permission denied");
 
 function checker($value)
 {
