@@ -1,5 +1,6 @@
-# PHPTodoListWithAjax
-This is a simple PHP program that let you create , delete , ... Todos in simplest way.
+# PHP Todo-List with Ajax
+
+This is a simple PHP web-application that let you create, edit, delete the tasks in the simplest way.
 
 For start you should create a new Database and two table like below:
 
