@@ -25,6 +25,11 @@ require_once "bootstrap/init.php";
 //         }
 //     }
 // }
+// . '/PHPTodoListWithAjax'}
+
+if (!isLogedIn($_COOKIE)) {
+    header("location: ${$_SERVER['DOCUMENT_ROOT']}" . "/PHPTodoListWithAjax" . "/views/login.php");
+}
 
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {

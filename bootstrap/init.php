@@ -1,6 +1,8 @@
 <?php
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/vendor/autoload.php";
+if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/vendor/autoload.php")) {
+    require_once $_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/vendor/autoload.php";
+}
 require_once $_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/bootstrap/constants.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/config/config.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/libs/helper.php";
@@ -18,4 +20,5 @@ try {
     killer("Connection Failed :" . $e->getMessage());
 }
 
+require_once $_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/libs/auth.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/libs/lib-tasks.php";

@@ -41,12 +41,14 @@ function deleteTask($taskId)
     }
 }
 
+
 function completeTask($taskId)
 {
+    $now = date("Y-m-d H:i:s", time());
     global $connection;
-    $query = "UPDATE tasks SET status = 1 WHERE id = ?";
+    $query = "UPDATE tasks SET status = 1, updated_at = ? WHERE id = ?";
     $stmt = $connection->prepare($query);
-    if ($stmt->execute([$taskId])) {
+    if ($stmt->execute([$now, $taskId])) {
         return ["status" => true];
     } else {
         return ["status" => false];
