@@ -40,3 +40,15 @@ function deleteTask($taskId)
         return ["status" => false];
     }
 }
+
+function completeTask($taskId)
+{
+    global $connection;
+    $query = "UPDATE tasks SET status = 1 WHERE id = ?";
+    $stmt = $connection->prepare($query);
+    if ($stmt->execute([$taskId])) {
+        return ["status" => true];
+    } else {
+        return ["status" => false];
+    }
+}
