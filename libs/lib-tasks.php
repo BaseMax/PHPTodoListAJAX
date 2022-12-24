@@ -1,23 +1,20 @@
 <?php defined("CHECK") or killer("permission denied");
 
-function getCurrentUserId()
-{
-}
-
 function getAllTasks()
 {
-    $userId = getCurrentUserId();
+    $userId = getUserId();
     global $connection;
     $query = "SELECT * FROM tasks WHERE user_id = ?";
     $stmt = $connection->prepare($query);
-    $stmt->execute([1]);
+    $stmt->execute([$userId]);
     return $stmt->fetchAll();
 }
 
 function addTask($title, $description)
 {
     global $connection;
-    $query = "INSERT INTO tasks (user_id, title, description) VALUES (1, ?, ?);";
+    $userId = getUserId();
+    $query = "INSERT INTO tasks (user_id, title, description) VALUES ($userId, ?, ?);";
     $stmt = $connection->prepare($query);
     if ($stmt->execute([
         $title,
@@ -32,7 +29,8 @@ function addTask($title, $description)
 function deleteTask($taskId)
 {
     global $connection;
-    $query = "DELETE FROM tasks WHERE id = ?";
+    $userId = getUserId();
+    $query = "DELETE FROM tasks WHERE id = ? and user_id = $userId";
     $stmt = $connection->prepare($query);
     if ($stmt->execute([$taskId])) {
         return ["status" => true];
@@ -46,7 +44,8 @@ function completeTask($taskId)
 {
     $now = date("Y-m-d H:i:s", time());
     global $connection;
-    $query = "UPDATE tasks SET status = 1, updated_at = ? WHERE id = ?";
+    $userId = getUserId();
+    $query = "UPDATE tasks SET status = 1, updated_at = ? WHERE id = ? and user_id = $userId";
     $stmt = $connection->prepare($query);
     if ($stmt->execute([$now, $taskId])) {
         return ["status" => true];

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once "bootstrap/init.php";
 
 
@@ -26,8 +28,7 @@ require_once "bootstrap/init.php";
 //     }
 // }
 // . '/PHPTodoListWithAjax'}
-
-if (!isLogedIn($_COOKIE)) {
+if (!isLogedIn()) {
     header("location: ${$_SERVER['DOCUMENT_ROOT']}" . "/PHPTodoListWithAjax" . "/views/login.php");
 }
 

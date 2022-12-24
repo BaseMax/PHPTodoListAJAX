@@ -1,3 +1,19 @@
+<?php
+session_start();
+require_once $_SERVER["DOCUMENT_ROOT"] . "/PHPTodoListWithAjax" . "/bootstrap/init.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (
+        isset($_POST["email"]) &&
+        !empty($_POST["email"]) &&
+        isset($_POST["password"]) &&
+        !empty($_POST["password"])
+    ) {
+        $result =  logIn($_POST["email"], $_POST["password"]);
+        header("location: ${$_SERVER['DOCUMENT_ROOT']}" . "/PHPTodoListWithAjax" . "/index.php");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +35,11 @@
     </div>
     <form action="<?= $_SERVER["PHP_SELF"] ?>" method="POST">
         <h3>Login Here</h3>
-
         <label for="email">Email</label>
-        <input type="email" placeholder="Email" id="email" />
+        <input type="email" placeholder="Email" id="email" name="email" />
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" />
+        <input type="password" placeholder="Password" id="password" name="password" />
 
         <button>Log In</button>
     </form>
