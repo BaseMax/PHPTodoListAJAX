@@ -38,3 +38,28 @@ DESCRIBE <table-name>;
 
 
 ![3](https://user-images.githubusercontent.com/107758775/208900322-a979d5f0-d994-4680-86da-0a80335ecb63.png)
+
+## Display
+
+When you go to project if you are logged in you see your tasks.
+
+if not you will redirect to login page.
+
+Login page would be like this:
+
+![7](https://user-images.githubusercontent.com/107758775/210042811-b1e8feee-156b-42f8-891a-d0258a953e77.png)
+
+When successfully logged in again you will back to main page and see your tasks:
+
+![6](https://user-images.githubusercontent.com/107758775/210042920-ce0d5d15-31da-4cca-8280-aed5dd11ae24.png)
+
+Now you can add a task by writing a title and description in inputs and save it.
+
+When you completed this task click on delete icon on task box. it will delete from database.
+
+If you don't want to delete it you can change its status to completed.
+
+## Contributors
+
+* Ali Ahmadi
+* Max Base
