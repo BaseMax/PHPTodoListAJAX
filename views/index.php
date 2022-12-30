@@ -87,7 +87,7 @@ TEXT;
     </div>
   </section>
   <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/ajaxHandler.js"></script>
+  <script src="assets/js/ajaxHandler.js<?php echo "#" . rand(0, 10000); ?>"></script>
 </body>
 
 </html>

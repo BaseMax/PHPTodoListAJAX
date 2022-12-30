@@ -2,18 +2,18 @@
 
 function getAllTasks()
 {
-    $userId = getUserId();
+    $userId = getUserId($_SESSION);
     global $connection;
     $query = "SELECT * FROM tasks WHERE user_id = ?";
     $stmt = $connection->prepare($query);
     $stmt->execute([$userId]);
-    return $stmt->fetchAll();
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
 
 function addTask($title, $description)
 {
     global $connection;
-    $userId = getUserId();
+    $userId = getUserId($_SESSION);
     $query = "INSERT INTO tasks (user_id, title, description) VALUES ($userId, ?, ?);";
     $stmt = $connection->prepare($query);
     if ($stmt->execute([
@@ -29,7 +29,7 @@ function addTask($title, $description)
 function deleteTask($taskId)
 {
     global $connection;
-    $userId = getUserId();
+    $userId = getUserId($_SESSION);
     $query = "DELETE FROM tasks WHERE id = ? and user_id = $userId";
     $stmt = $connection->prepare($query);
     if ($stmt->execute([$taskId])) {
@@ -44,7 +44,7 @@ function completeTask($taskId)
 {
     $now = date("Y-m-d H:i:s", time());
     global $connection;
-    $userId = getUserId();
+    $userId = getUserId($_SESSION);
     $query = "UPDATE tasks SET status = 1, updated_at = ? WHERE id = ? and user_id = $userId";
     $stmt = $connection->prepare($query);
     if ($stmt->execute([$now, $taskId])) {

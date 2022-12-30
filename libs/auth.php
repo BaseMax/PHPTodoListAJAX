@@ -18,16 +18,16 @@ function emailToUsername($email)
     return $result[0];
 }
 
-function isLogedIn()
+function isLogedIn($SESSION)
 {
     if (
-        isset($_SESSION["email"]) &&
-        isset($_SESSION["password"]) &&
-        !empty($_SESSION["email"]) &&
-        !empty($_SESSION["password"])
+        isset($SESSION["email"]) &&
+        isset($SESSION["password"]) &&
+        !empty($SESSION["email"]) &&
+        !empty($SESSION["password"])
     ) {
-        $email = $_SESSION["email"];
-        $password = $_SESSION["password"];
+        $email = $SESSION["email"];
+        $password = $SESSION["password"];
         $user = checkUser($email, $password);
         // var_dump($user);
         if ($user) {
@@ -59,9 +59,9 @@ function register($email, $password, $username)
     }
 }
 
-function getUserId()
+function getUserId($SESSION)
 {
-    $user = checkUser($_SESSION["email"], $_SESSION["password"]);
+    $user = checkUser($SESSION["email"], $SESSION["password"]);
     if ($user) {
         // var_dump($user);
         return $user[0]["id"];

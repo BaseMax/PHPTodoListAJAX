@@ -48,6 +48,7 @@ function setEmpty(inp) {
 
 function show(response, tbody, titleInp, descriptionInp) {
   let resultHTML = null;
+  console.log(response);
   response = JSON.parse(response);
   response.forEach((task) => {
     let status = task.status ? "Completed" : "In progress";

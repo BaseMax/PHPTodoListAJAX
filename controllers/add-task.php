@@ -21,6 +21,6 @@ if (
     $description = $_POST["description"];
     addTask($title, $description);
     $allTasks = getAllTasks();
-
-    echo json_encode($allTasks);
+    echo $allTasks;
+    return json_encode($allTasks);
 }

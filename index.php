@@ -28,7 +28,7 @@ require_once "bootstrap/init.php";
 //     }
 // }
 // . '/PHPTodoListWithAjax'}
-if (!isLogedIn()) {
+if (!isLogedIn($_SESSION)) {
     header("location: ${$_SERVER['DOCUMENT_ROOT']}" . "/PHPTodoListWithAjax" . "/views/login.php");
 }
 
