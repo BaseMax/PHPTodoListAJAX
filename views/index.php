@@ -57,6 +57,7 @@ defined("CHECK") or killer("permission denied");
                 <tbody id="tbody">
                   <?php
                   foreach ($allTasks as $task) {
+                    $task = (array) $task;
                     $status = $task["status"] ? "Completed" : "In progress";
                     $text = <<<TEXT
   <tr>
